@@ -51,7 +51,7 @@ describe('Test Scenario', function()
         cy.get('#inputPassword4').click().realType('1234')
         cy.get('#company').click().realType('company')
         cy.get('#websitename').click().realType('lambdatest.com')
-        cy.get(':nth-child(3) > .pr-20 > .w-full').select('American Samoa')
+        cy.get(':nth-child(3) > .pr-20 > .w-full').select('American Samoa')            
 
         cy.get('#inputCity').click().realType('Ho Chi Minh')
         cy.get('#inputAddress1').click().realType('Address 1, Viet Nam')
