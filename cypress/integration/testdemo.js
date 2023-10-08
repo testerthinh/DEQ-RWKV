@@ -6,7 +6,7 @@ describe('Lighthouse', () => {
     it('should run performance audits', () => {
       cy.visit('https://www.browserstack.com/');
 
-      cy.go('back')
+      cy.go('back')           
 
     });
   });
