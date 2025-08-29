@@ -1,33 +1,71 @@
-# DEQ-RWKV
+<div align="center">
 
-这是一个实验性质的开源项目，把DEQ（深度均衡模型）算法和RWKV-v7架构结合起来玩一玩
+  # DEQ-RWKV
+  
+  <p><em>结合深度均衡模型(DEQ)与RWKV-v7架构的轻量级AI模型</em></p>
+  
+  <div>
+    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" />
+    <img src="https://img.shields.io/badge/CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white" />
+    <img src="https://img.shields.io/badge/OpenSource-%E2%9D%A4%EF%B8%8F-green?style=for-the-badge" />
+  </div>
+</div>
+
+这是一个实验性质的开源项目，把DEQ（深度均衡模型）算法和RWKV-v7架构结合起来玩一玩🤗
+
+---
 
 ## 项目是做什么的 🤔
 
-简单来说，这个项目尝试用更少的模型参数来做和RWKV-v7差不多的事，我用DEQ算法来优化模型结构，看看能不能在保持性能的同时，让模型更轻量一些。  
-1个嵌入维度为768的rwkv7的block组件就有约28.7M，官方0.1b的模型就有12个block，加起来就是约344M，不仅占用空间多，而且训练起来占非常多显存。  
-而通过DEQ算法就只需要1个block的参数量，你想想🙃  
+简单来说，这个项目尝试用更少的模型参数来做和RWKV-v7差不多的事，我用DEQ算法来优化模型结构，看看能不能在保持性能的同时，让模型更轻量一些。
+
+<div class="highlight-box">
+  <h3>💡 多轻量？</h3>
+  <ul>
+    <li>传统RWKV-v7：1个768维嵌入的block ≈ <strong>28.7M</strong> 参数</li>
+    <li>官方最小的0.1B模型：12个block ≈ <strong>344M</strong> 参数</li>
+    <li><strong>DEQ-RWKV</strong>：仅需 <strong>1个block</strong> ，你想想🙃</li>
+  </ul>
+</div>
+
+**显存优化**：大幅降低训练和推理时的显存占用
+
+---
 
 ## 主要文件有什么用 📁
 
-- **main.ipynb**: 一个Jupyter笔记本，里面有完整的模型定义和训练流程，想自己训练的可以看看 🔬
-- **wkv7.py**: 把CUDA实现的RWKV-v7的wkv模块封装成Python可以直接调用的接口
-- **tokenizer.py**: RWKV官方的分词器，把文本转成token  
-- **vocab.txt**: 词表文件，用的RWKV官方的 📝
-- **cuda/**: 里面是用CUDA写的核心计算代码，也是RWKV官方的
-- **test.jsonl**: 一个测试训练效果用的数据集，里面是一些已经转成token的数据
+| 文件/目录        | 功能描述                                            |
+|-----------------|--------------------------------------------------|
+| **main.ipynb**  | 完整的模型定义和训练流程Jupyter笔记本               |
+| **wkv7.py**     | CUDA实现的RWKV-v7的wkv模块Python封装接口             |
+| **tokenizer.py**| RWKV官方的分词器，负责文本与token的相互转换           |
+| **vocab.txt**   | RWKV的官方词表                          |
+| **cuda/**       | 里面是用CUDA写的核心计算代码，也是RWKV官方的         |
+| **test.jsonl**  | 一个测试训练效果用的数据集，里面是一些已经转成token的数据 |
 
-注意：main.py里的用到的g1a.pth是rwkv7的官方的某个0.1b模型的参数，可自行下载，放在主目录就好
-https://huggingface.co/BlinkDL/rwkv7-g1/tree/main
+注意：main.py里的用到的g1a.pth是rwkv7的官方的某个0.1b模型的参数，可自行下载（哪个都可以），放在主目录就好
+
+<a href="https://huggingface.co/BlinkDL/rwkv7-g1/tree/main" target="_blank">
+  <img src="https://img.shields.io/badge/Hugging%20Face-%F0%9F%A4%97-blue?style=for-the-badge" />
+</a>
+
+---
 
 ## 怎么用 🚀
 
 如果你想自己捣鼓这个项目，或者学习DEQ算法如何用，直接看代码就好啦～ 训练流程在main.ipynb里写得很清楚（只不过我没怎么写注释😅）
 
+---
+
 ## 为什么开源 🌟
 
-就是想分享一下我写了几天的代码😅～  
+就是想分享一下我实验了很久的代码😅
 如果你觉得有用，可以自己拿去改，或者在这个基础上做更多的实验。  
 有什么问题或者建议，也欢迎提出来一起讨论  
 
-感谢QQ好友“3A是个好同志”赞助的算力支持！
+---
+
+## 感谢 🙏
+
+- 🖥️感谢QQ好友**“3A是个好同志”**赞助的算力支持！
+- 🙌感谢 RWKV 社区提供的开源代码！
