@@ -9,7 +9,8 @@
 ## 主要文件有什么用 📁
 
 - **main.ipynb**: 一个Jupyter笔记本，里面有完整的模型定义和训练流程，想自己训练的可以看看 🔬
-- **wkv7.py**: 把CUDA实现的RWKV-v7的wkv模块封装成Python可以直接调用的接口 
+- **wkv7.py**: 把CUDA实现的RWKV-v7的wkv模块封装成Python可以直接调用的接口
+- **tokenizer.py**: RWKV官方的分词器，把文本转成token  
 - **vocab.txt**: 词表文件，用的RWKV官方的 📝
 - **cuda/**: 里面是用CUDA写的核心计算代码，也是RWKV官方的
 - **test.jsonl**: 一个测试训练效果用的数据集，里面是一些已经转成token的数据
